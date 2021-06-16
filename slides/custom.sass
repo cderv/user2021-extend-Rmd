@@ -1,5 +1,8 @@
 $color1: #0A7FB2 // blue
 
+.color1
+  color: $color1
+
 /* rounded image */
 
 .profile img
@@ -42,3 +45,30 @@ $color1: #0A7FB2 // blue
 
   p
     margin: 0px
+
+.panelset
+   --panel-tab-active-border-color: #{$color1}
+   --panel-tab-hover-border-color: #{$color1}
+
+/* wrap content in code chunk */
+pre
+  code
+    white-space: pre-wrap
+
+/* pull */
+
+%pull
+  width: 47%
+  margin-top: 0px
+
+.pull-left
+    @extend %pull
+    float: left
+
+.pull-right
+    @extend %pull
+    float: right
+
+.annexe
+  .remark-slide-number
+    display: none
