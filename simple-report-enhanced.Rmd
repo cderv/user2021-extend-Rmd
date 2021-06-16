@@ -1,0 +1,137 @@
+---
+title: "Let's dive into palmerpinguins !"
+author: "C. Dervieux"
+date: "07/06/2021"
+output: 
+  html_document: 
+    df_print: kable
+---
+
+## About the data
+
+**palmerpinguins** (https://allisonhorst.github.io/palmerpenguins) is an R package to provide a great dataset for data exploration & visualization, as an alternative to iris.
+
+Let's look into it ! 
+
+```{r setup, include = FALSE, message=FALSE}
+# do not show code by default
+knitr::opts_chunk$set(echo = FALSE)
+
+library(palmerpenguins)
+library(dplyr)
+library(ggplot2)
+```
+
+```{scss, echo = FALSE}
+$color1: #0A7FB2;
+
+h1, h2, h3 {color: $color1;}
+
+div {
+  &.highlight-box {
+   border-color: $color1;
+    border-style: solid;
+    padding: 0.5em;
+
+    strong {
+     color: $color1;
+    }
+  }
+}
+```
+
+The `penguins` data contains the following 
+
+```{r}
+glimpse(penguins)
+```
+
+## How many species ? 
+
+We have `r length(unique(penguins$species))` species into this datasets: `r knitr::combine_words(unique(penguins$species))` that are not equally reparted
+
+```{r}
+penguins %>% 
+  count(species)
+```
+
+```{r, out.width='60%', fig.align = 'center', echo = FALSE, fig.alt = "Illustration of pinguins species : Chinstrap, Gentoo and Adélia"}
+knitr::include_graphics("https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png")
+```
+
+## Interesting Metrics
+
+We can get some interesting mean metrics for each species:
+
+```{r}
+mean_metric <- penguins %>%
+  group_by(species) %>%
+  select(-year) %>%
+  summarize(across(where(is.numeric), mean, na.rm = TRUE))
+mean_metric
+```
+
+```{r, echo = FALSE, out.width='75%', fig.align = 'center'}
+knitr::include_graphics("https://allisonhorst.github.io/palmerpenguins/reference/figures/culmen_depth.png")
+```
+
+```{r, include = FALSE}
+heaviest_specie <- mean_metric %>%
+  filter(body_mass_g == max(body_mass_g)) %>% 
+  pull(species)
+```
+
+
+::: {.highlight-box style="text-align: center;font-size: 1.5em;"}
+The **`r heaviest_specie`** specie is heavier than other ! 
+:::
+
+## Is this equally distributed between Sex ? 
+
+```{r, warning=FALSE}
+ggplot(penguins, aes(x = flipper_length_mm,
+                            y = body_mass_g)) +
+  geom_point(aes(color = sex)) +
+  theme_minimal() +
+  scale_color_manual(values = c("darkorange","cyan4"), na.translate = FALSE) +
+  labs(title = "Penguin flipper and body mass",
+       subtitle = "Dimensions for male and female Adelie, Chinstrap and Gentoo Penguins at Palmer Station LTER",
+       x = "Flipper length (mm)",
+       y = "Body mass (g)",
+       color = "Penguin sex") +
+  theme(legend.position = "bottom",
+        legend.background = element_rect(fill = "white", color = NA),
+        plot.title.position = "plot",
+        plot.caption = element_text(hjust = 0, face= "italic"),
+        plot.caption.position = "plot") +
+  facet_wrap(~species)
+```
+
+
+## And where do they live ? 
+
+```{r, include = FALSE}
+island_repart_alt <- "Horizontal bar chart, faceted by Species showing the number of penguins living on each island, Torgersen, Dream and Biscoe. Adelie lives on the three, whereas Gentoo on Biscoe and Chinstrap on Dream."
+```
+
+```{r island-repart, fig.alt= island_repart_alt}
+ggplot(penguins, aes(x = island, fill = species)) +
+  geom_bar(alpha = 0.8) +
+  scale_fill_manual(values = c("darkorange","purple","cyan4"),
+                    guide = FALSE) +
+  theme_minimal() +
+  facet_wrap(~species, ncol = 1) +
+  coord_flip()
+```
+
+::: {.highlight-box style="text-align: center;font-size: 1.5em;"}
+One of the species lives on all islands and the others are specific to one island only. 
+:::
+
+# Acknowledgement
+
+* Alison Horst, and Alison Presman-Hill for the package **palmerpinguins** and the article content from which the example above are taken and inspired. 
+
+* Alison Horst for the two illustrations. 
+
+* Source of content: https://allisonhorst.github.io/palmerpenguins
