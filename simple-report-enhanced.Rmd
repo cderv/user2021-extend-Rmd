@@ -33,9 +33,7 @@ div {
     border-style: solid;
     padding: 0.5em;
 
-    strong {
-     color: $color1;
-    }
+    strong {color: $color1;}
   }
 }
 ```
