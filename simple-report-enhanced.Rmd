@@ -71,7 +71,7 @@ mean_metric <- penguins %>%
 mean_metric
 ```
 
-```{r, echo = FALSE, out.width='75%', fig.align = 'center'}
+```{r, echo = FALSE, out.width='75%', fig.align = 'center', fig.alt="Illustration about penguins bill length and depth"}
 knitr::include_graphics("https://allisonhorst.github.io/palmerpenguins/reference/figures/culmen_depth.png")
 ```
 
