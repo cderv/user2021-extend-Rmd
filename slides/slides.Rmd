@@ -116,7 +116,7 @@ layout: true
 ![:scale 90%, animated gif showing the content of the Rmd source for the default simple report without any tweak.](simple-report.gif)
 
 .source-fig.right[
-Source file link
+[RStudio Cloud project](https://rstudio.cloud/project/2646304) &#8226; [Download Rmd](https://user2021-enhanced-rmd.netlify.app/simple-report.Rmd)
 ]
 
 ]
@@ -127,7 +127,8 @@ Source file link
 ![:scale 85%, animated gif showing the HTML output rendered from the previous simple report Rmd source. This HTML report use default content and style.](simple-report-html.gif)
 
 .source-fig.right[
-Source file link
+[RStudio Cloud project](https://rstudio.cloud/project/2646304) &#8226; [Download HTML](https://user2021-enhanced-rmd.netlify.app/simple-report.html)
+]
 ]
 ]
 
@@ -298,7 +299,7 @@ It allows for variables, tweaking functions (called _mixins_), operations (like 
 
 ````markdown
 ```{css, echo = FALSE}`r ''`
-* h1, h2, h3 {color: #0A7FB2;}
+*h1, h2, h3 {color: #0A7FB2;}
 
 div.highlight-box {
 * border-color: #0A7FB2;
@@ -401,8 +402,8 @@ layout: false
 
 ![:scale 80%, animated gif showing the resulting HTML report including all the changes mentioned previously.](simple-report-enhanced-html.gif)
 
-.source-fig.left[
-Source file link
+.source-fig.right[
+[RStudio Cloud project](https://rstudio.cloud/project/2646304) &#8226; [Download Rmd](https://user2021-enhanced-rmd.netlify.app/simple-report-enhanced.Rmd) &#8226; [Download HTML](https://user2021-enhanced-rmd.netlify.app/simple-report-enhanced.html)
 ]
 
 ---

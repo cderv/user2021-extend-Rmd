@@ -8,6 +8,8 @@ examples:
 		Rscript -e 'rmarkdown::render("simple-report-enhanced.Rmd", quiet = TRUE)'
 		cp simple-report.html slides/simple-report.html
 		cp simple-report-enhanced.html slides/simple-report-enhanced.html
+		cp simple-report.Rmd slides/simple-report.Rmd
+		cp simple-report-enhanced.Rmd slides/simple-report-enhanced.Rmd
 
 deploy:
 		cd slides && \
