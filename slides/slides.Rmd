@@ -240,7 +240,7 @@ The **`r heaviest_specie`** specie is heavier than other !
 
 ---
 
-```{r demo-box, echo = FALSE, results='asis', rm_temp = TRUE}
+```{r demo-box, echo = FALSE, results='asis'}
 o <- tempfile()
 rmarkdown::pandoc_convert(temp_file, to = "html", output = I(o))
 content <- xfun::read_utf8(o)
@@ -327,9 +327,7 @@ div { /* using nested organization */
     border-style: solid;
     padding: 0.5em;
 
-    strong {
-*     color: $color1;
-    }
+*   strong {color: $color1;}
   }
 }
 ```
@@ -355,8 +353,8 @@ div
       color: $color1
 ```
 ````
-
 ]
+
 ]
 
 ???
@@ -367,6 +365,34 @@ In this example and the previous _scss_ one, we are using special _SASS_ feature
 
 This allows organization of CSS rules for easier reading and modifications. 
 
+---
+
+.subtitle[About our styled blue box]
+
+The custom block we created
+
+```{cat, engine.opts=list(lang = "mardkown"), code=xfun::read_utf8(temp_file)}
+```
+is now looking in our HTML this way
+```{sass, echo = FALSE}
+$color1: #0A7FB2
+
+div
+  &.highlight-box
+    border-color: $color1
+    border-style: solid
+    padding: 0.5em
+  
+    strong
+      color: $color1
+      
+    p
+      margin: 0
+```
+
+.highlight-box.center[
+The **Gentoo** specie is heavier than other !
+]
 
 ---
 layout: false
@@ -395,7 +421,7 @@ Source file link
 
 More in the book !
 
-.f5[https://bookdown.org/yihui/rmarkdown-cookbook/]
+.small[https://bookdown.org/yihui/rmarkdown-cookbook/]
 ]
 
 ---
