@@ -64,11 +64,11 @@ RStudio &#8226; Software Engineer &#8226; R Markdown Team
 
 .pull-left.center[
 ![:scale 75%, rmarkdown package logo](https://pkgs.rstudio.com/rmarkdown/reference/figures/logo.png)
-.f6[https://pkgs.rstudio.com/rmarkdown/]
+.f5[https://pkgs.rstudio.com/rmarkdown/]
 ]
 .pull-right.center[
 ![:scale 55%, R Markdown Cookbook book cover](https://bookdown.org/yihui/rmarkdown-cookbook/images/cover.png)
-.f6[https://bookdown.org/yihui/rmarkdown-cookbook/]
+.f5[https://bookdown.org/yihui/rmarkdown-cookbook/]
 ]
 
 ???
