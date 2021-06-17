@@ -40,7 +40,7 @@ knitr::knit_hooks$set(rm_temp = function(before) {
 
 .profile[![:scale 25%, profile picture for @cderv in Github](https://avatars.githubusercontent.com/u/6791940?v=4)]
 
-Software Engineer &#8226; R Markdown Team &#8226; RStudio
+RStudio &#8226; Software Engineer &#8226; R Markdown Team
 
 ]
 .pull-left[
@@ -148,25 +148,25 @@ knitr::opts_chunk$set(echo = FALSE)
 * Do not show the source chunk as code block. Set globally here
 
 ---
-
+layout: true
 # Add alternative text
 
 .subtitle[About `fig.alt` chunk option]
 
-.panelset[
+---
 
-.panel[.panel-name[With images]
+Can be used with an external image
+
 ````markdown
-```{r, out.width='60%', fig.align = 'center', echo = FALSE, 
-*fig.alt = "Illustration of pinguins species : 
-*Chinstrap, Gentoo and Adélia"}`r ''`
-knitr::include_graphics("https://allisonhorst.github.io/
-palmerpenguins/reference/figures/lter_penguins.png")
+```{r species-img, fig.alt = "Illustration of pinguins species : Chinstrap, Gentoo and Adélia", out.width='60%', fig.align = 'center', echo = FALSE}`r ''`
+knitr::include_graphics("https://allisonhorst.github.io/palmerpenguins/reference/
+figures/lter_penguins.png")
 ```
 ````
-]
+---
 
-.panel[.panel-name[With R plots]
+Or with R graphics
+
 ````markdown
 ```{r, include = FALSE}`r ''`
 island_repart_alt <- "Horizontal bar chart, faceted by Species showing the number of penguins living on each island, Torgersen, Dream and Biscoe. Adelie lives on the three, whereas Gentoo on Biscoe and Chinstrap on Dream."
@@ -182,8 +182,6 @@ ggplot(penguins, aes(x = island, fill = species)) +
   coord_flip()
 ```
 ````
-]
-]
 
 ---
 layout: true
