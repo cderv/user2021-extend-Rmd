@@ -444,3 +444,22 @@ gh_handle_to_link <- function(handle) sprintf("[@%s](https://github.com/%s)", ha
 * Allison Horst for the illustrations.
 * Alison Presman-Hill and Allison Horst for the **palmerpinguins** `r emo::ji("package")` and vignettes.
 * `r gh_handle_to_link("cpsievert")` for the [**sass**](https://rstudio.github.io/sass/) `r emo::ji("package")`
+
+```{r meta, echo=FALSE}
+library(metathis)
+meta() %>%
+  meta_general(
+    description = "A presentation at useR2021 about tips and tricks to enhanced a R Markdown document output.",
+    generator = "xaringan and remark.js"
+  ) %>% 
+  meta_social(
+    title = "Extend the functionality of your R Markdown document.",
+    url = "https://user2021-enhanced-rmd.netlify.app/",
+    image = "https://user2021-enhanced-rmd.netlify.app//whwir.png",
+    image_alt = "The fourth slide of the presentation showing an illustration by Allison Horst about the little wizard implied in the process of cooking a Rmd document from Text & Code to produce a beautiful output.",
+    og_type = "website",
+    og_author = "Christophde Dervieux",
+    twitter_card_type = "summary_large_image",
+    twitter_creator = "@chrisderv"
+  )
+```
