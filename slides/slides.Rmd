@@ -119,8 +119,6 @@ layout: true
 [RStudio Cloud project](https://rstudio.cloud/project/2646304) &#8226; [Download Rmd](https://user2021-enhanced-rmd.netlify.app/simple-report.Rmd)
 ]
 
-]
-
 ---
 
 .center[
