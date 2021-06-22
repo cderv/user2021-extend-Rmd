@@ -22,7 +22,7 @@ xaringanExtra::use_panelset()
 xaringanExtra::use_freezeframe(responsive = FALSE)
 
 # will be used several times in a cat engine
-temp_file <- tempfile()
+temp_file <- tempfile(fileext = ".Rmd")
 # setting option for the several cat engine
 knitr::opts_template$set(cat_md = list(
   engine.opts = list(file = temp_file, lang = "markdown"),
@@ -118,6 +118,7 @@ layout: true
 .source-fig.right[
 [RStudio Cloud project](https://rstudio.cloud/project/2646304) &#8226; [Download Rmd](https://user2021-enhanced-rmd.netlify.app/simple-report.Rmd)
 ]
+]
 
 ---
 
@@ -126,7 +127,6 @@ layout: true
 
 .source-fig.right[
 [RStudio Cloud project](https://rstudio.cloud/project/2646304) &#8226; [Download HTML](https://user2021-enhanced-rmd.netlify.app/simple-report.html)
-]
 ]
 ]
 
@@ -239,10 +239,12 @@ The **`r heaviest_specie`** specie is heavier than other !
 
 ---
 
-```{r demo-box, echo = FALSE, results='asis'}
-o <- tempfile()
-rmarkdown::pandoc_convert(temp_file, to = "html", output = I(o))
+```{r demo-box, include = FALSE}
+o <- tempfile(fileext = ".html")
+heaviest_specie <- "Gentoo"
+rmarkdown::render(temp_file, rmarkdown::html_fragment(), output_file = I(o), quiet = FALSE)
 content <- xfun::read_utf8(o)
+content <- content[content != ""]
 unlink(o)
 ```
 
