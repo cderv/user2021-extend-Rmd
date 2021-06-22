@@ -6,3 +6,6 @@
 
 # Local Netlify folder
 .netlify
+
+# build files
+*.html
