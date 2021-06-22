@@ -1,6 +1,6 @@
-all: render examples deploy
+all: render-slides examples
 
-render:
+render-slides:
 		Rscript -e 'xfun::in_dir("slides", rmarkdown::render("slides.Rmd", output_file = "index.html"))'
 
 examples:
@@ -11,6 +11,7 @@ examples:
 		cp simple-report.Rmd slides/simple-report.Rmd
 		cp simple-report-enhanced.Rmd slides/simple-report-enhanced.Rmd
 
+# this require the netlify cli to be setup
 deploy:
 		cd slides && \
-		netlify deploy --dir=. --prod
+		netlify deploy --dir=. --prod || echo '## >> netlify not configured - deployement skipped'
