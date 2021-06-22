@@ -1,17 +1,23 @@
+.PHONY: render-slides examples deploy init
+
 all: render-slides examples
 
-render-slides:
-		Rscript -e 'xfun::in_dir("slides", rmarkdown::render("slides.Rmd", output_file = "index.html"))'
+# render presentation
+render-slides: slides/index.html
 
-examples:
-		Rscript -e 'rmarkdown::render("simple-report.Rmd", quiet = TRUE)'
-		Rscript -e 'rmarkdown::render("simple-report-enhanced.Rmd", quiet = TRUE)'
-		cp simple-report.html slides/simple-report.html
-		cp simple-report-enhanced.html slides/simple-report-enhanced.html
-		cp simple-report.Rmd slides/simple-report.Rmd
-		cp simple-report-enhanced.Rmd slides/simple-report-enhanced.Rmd
+slides/index.html: slides/slides.Rmd
+		Rscript -e 'xfun::in_dir("slides", rmarkdown::render("$(<F)", output_file = "$(@F)", quiet = TRUE))'
 
-# this require the netlify cli to be setup
+# Render demo file
+demo = slides/simple-report.html slides/simple-report-enhanced.html
+
+examples: $(demo)
+
+$(demo): %.html: %.Rmd
+		Rscript -e 'library(rmarkdown);render("$<", quiet = TRUE)'
+
+# deployement
+## this require the netlify cli to be setup
 deploy:
 		cd slides && \
 		netlify deploy --dir=. --prod || echo '## >> netlify not configured - deployement skipped'
