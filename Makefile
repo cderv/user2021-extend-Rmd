@@ -15,3 +15,7 @@ examples:
 deploy:
 		cd slides && \
 		netlify deploy --dir=. --prod || echo '## >> netlify not configured - deployement skipped'
+
+init:
+		RScript -e 'renv::restore()'
+		cd slides && RScript -e 'xaringan::summon_remark()'
