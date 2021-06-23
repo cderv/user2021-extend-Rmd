@@ -307,8 +307,8 @@
       "Package": "htmltools",
       "Version": "0.5.1.9005",
       "Source": "GitHub",
-      "Remotes": "r-lib/rlang",
       "RemoteType": "github",
+      "Remotes": "r-lib/rlang",
       "RemoteHost": "api.github.com",
       "RemoteRepo": "htmltools",
       "RemoteUsername": "rstudio",
@@ -367,7 +367,7 @@
       "RemotePkgRef": "yihui/knitr",
       "RemoteRef": "HEAD",
       "RemoteSha": "11eeb4326b6ed1afd6808b29ef0fb3ed78762ea6",
-      "Hash": "2084686612a95b0aaaca09f86c6160f5"
+      "Hash": "ddc11a0bb249f164a29b262ebc047944"
     },
     "labeling": {
       "Package": "labeling",
@@ -593,8 +593,8 @@
       "RemoteUsername": "r-lib",
       "RemoteRepo": "rlang",
       "RemoteRef": "master",
-      "RemoteSha": "b501cf763097f796f90982dead5e646bdd9dd3f0",
-      "Hash": "6c84dfb4fad0cfee9780d5982a239687"
+      "RemoteSha": "9bed9dd6237ebba56d805a7c7a8037d91623064f",
+      "Hash": "ecff90e623a972db797ece9edf25509a"
     },
     "rmarkdown": {
       "Package": "rmarkdown",
@@ -749,16 +749,10 @@
     },
     "xaringan": {
       "Package": "xaringan",
-      "Version": "0.21",
-      "Source": "CRAN",
+      "Version": "0.22",
+      "Source": "Repository",
       "Repository": "CRAN",
-      "RemoteType": "standard",
-      "RemotePkgRef": "xaringan",
-      "RemoteRef": "xaringan",
-      "RemoteRepos": "https://cran.rstudio.com/",
-      "RemotePkgPlatform": "windows",
-      "RemoteSha": "0.21",
-      "Hash": "dc0f5dfeb019f08b0f1b912e6385ad0c"
+      "Hash": "c0ed5b878f24730ed7f4afbb95af84ae"
     },
     "xaringanExtra": {
       "Package": "xaringanExtra",
@@ -783,7 +777,7 @@
       "RemoteRepos": "https://cran.rstudio.com/",
       "RemotePkgType": "windows",
       "RemoteSha": "0.23",
-      "Hash": "791a57f43c887111490851dcd166d344"
+      "Hash": "a23d784dae37ff37e85a40ef16b4d692"
     },
     "yaml": {
       "Package": "yaml",
