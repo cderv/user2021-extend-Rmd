@@ -13,12 +13,16 @@ slides/useR2021-extend-rmd.html: slides/slides.Rmd
 		Rscript -e 'xfun::in_dir("slides", rmarkdown::render("$(<F)", output_file = "$(@F)", quiet = TRUE))'
 
 # Render demo file
-demo = slides/simple-report.html slides/simple-report-enhanced.html
+demo-out := slides/simple-report.html slides/simple-report-enhanced.html
+demo-source := $(subst .html,.Rmd, $(demo-out))
 
-examples: $(demo)
+examples: $(demo-out)
 
-$(demo): %.html: %.Rmd
-		Rscript -e 'library(rmarkdown);render("$<", quiet = TRUE)'
+$(demo-out): %.html: %.Rmd
+		Rscript -e 'xfun::in_dir("slides", rmarkdown::render("$(<F)", output_file = "$(@F)", quiet = TRUE))'
+
+$(demo-source): $(notdir $(demo-source))
+		cp $< $@
 
 # deployement
 ## this require the netlify cli to be setup
