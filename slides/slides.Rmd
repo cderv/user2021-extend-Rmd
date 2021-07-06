@@ -430,6 +430,7 @@ class: center, middle, annexe
 count: false
 
 # Thank you !
+.f2.color1[`r fontawesome::fa("github")`]</br>.f3[https://github.com/cderv/user2021-extend-Rmd]
 
 ---
 class: annexe
