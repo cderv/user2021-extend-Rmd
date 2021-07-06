@@ -21,7 +21,7 @@ examples: $(demo-out)
 $(demo-out): %.html: %.Rmd
 		Rscript -e 'xfun::in_dir("slides", rmarkdown::render("$(<F)", output_file = "$(@F)", quiet = TRUE))'
 
-$(demo-source): $(notdir $(demo-source))
+$(demo-source): slides/%.Rmd: %.Rmd
 		cp $< $@
 
 # deployement
